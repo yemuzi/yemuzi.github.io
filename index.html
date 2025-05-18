@@ -1,181 +1,384 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-    <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>AI触手可及~ | Yemuzi Studio</title>
-    <meta name="keywords" content="摄像头阅卷,答题卡阅卷,网络舆情监测,商品进销存管理,免费软件">
-        <meta name="description" lang="en" content="yemuzi studio工作室致力于分享免费软件,赋能AI SDK">
-            <style type="text/css">
-                a, img {
-                    border:none;
-                }
-            
-            body,td,th {
-                font-family: Verdana, sans-serif;
-                font-size: 16px;
-                line-height: 22px;
-                color: #4b4b4b;
-                text-align: left;
+    <meta name="keywords" content="降本增效,扫描仪阅卷,摄像头阅卷,手机阅卷,AI阅卷,客观题阅卷,答题卡阅卷,主观题阅卷,阅卷神器,事件检测,智能视频分析,安防事件检测,交通事件检测,">
+    <meta name="description" content="yemuzi studio致力于行业化AI赋能">
+    <style>
+        :root {
+            --primary-color: #17a554;
+            --text-color: #4b4b4b;
+            --card-width: min(95%, 680px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            background: #f8f9fa;
+        }
+
+        .container {
+            width: var(--card-width);
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        /* 模块化卡片 */
+        .software-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.2rem;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.2rem;			
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-box img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            //border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .title-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.3rem;
+        }
+
+        .software-name {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .software-meta {
+            font-size: 0.85rem;
+            color: #666;
+            white-space: nowrap;
+        }
+		
+		.badge {
+            font-size: 0.85rem;
+            color: #666;
+            background: #e9ecef;
+            padding: 0.2rem 0.8rem;
+            border-radius: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.4rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.92rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .action-box {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 关于模块 */
+        .about-section {
+            text-align: center;
+            padding: 1.5rem;
+            background: #2c2c2c;
+            color: white;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            margin: 0.8rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .software-card {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1rem;
             }
-            
-            body {
-                background-color: #ffffff;
-                margin-top: 0;
-                margin-bottom: 0;
-                margin-left: 0;
-                margin-right: 0;
+
+            .icon-box {
+                margin: 0 auto;
             }
-            
-            a:active {  color: #17a554; text-decoration: none}
-            a:link {  color: #17a554; text-decoration: none}
-            a:visited {  color: #4b4b4b; text-decoration: none}
-            a:hover {  color: #17a554}
-            
-            p {
-                text-align: justify;
+			/*
+            .title-box {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.2rem;
             }
-            
-            td
-            {
-                margin-top: 0;
+			
+            .software-meta {
+                white-space: normal;
+                text-align: center;
+            }			
+			
+            .action-box {
+                flex-direction: column;
             }
-            
-            iframe {
-                width: 100%;
-                height: 50px;
-                border: 0;
+			*/
+            .action-btn {
+                justify-content: center;
             }
-            </style>
+			
+        }
+    </style>
 </head>
 <body>
-  <div id="fb-root"></div>
-  
-	<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">            
-	    
-	    <!--software-->
-	    <tbody>
-	    <tr>
-	        <td>
-	            <div align="center">
-	                <br>
-	                <img src="images/software.png" hspace="0" vspace="0" align="center" alt="Games">
-	            </div>
-	        </td>
-	    </tr>
-	    
-	    <tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/1oTUycdG64ofEohaPaLVQfQ?pwd=21cb" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/datika.ico" alt="摄像头阅卷" width="128" height="128" hspace="8" vspace="0" border="4" align="left">摄像头阅卷</a><br>
-	                <hr size="2" color="#000000">
-	                 一款通过usb摄像头对答题卡进行自动化阅卷的软件；适用于教师阅卷，问卷调查等场景。下载地址：<a href="https://pan.baidu.com/s/1oTUycdG64ofEohaPaLVQfQ?pwd=21cb" target="_blank"><b>百度网盘</b></a> 演示地址：<a href="https://www.bilibili.com/video/BV1rP411u75a" target="_blank"><b>b站</b></a><br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-	    <tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/1iAVW4MR1im442yuAVSy3Eg" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/shop.ico" alt="商品进销存管理" width="128" height="128" hspace="8" vspace="0" border="4" align="left">商品进销存管理</a><br>
-	                <hr size="2" color="#000000">
-	                 实现对商品进货，销售，库存，会员的管理；适用于零售，日化品商店。下载地址：<a href="https://pan.baidu.com/s/1iAVW4MR1im442yuAVSy3Eg?pwd=rwwe" target="_blank"><b>百度网盘</b></a> 。特别提醒：默认用户名：老板 密码：123456<br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-	    <tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/1NcPHiGaay6qRexRTICW7dg" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/net.ico" alt="网络舆情监测" width="128" height="128" hspace="8" vspace="0" border="4" align="left">网络舆情监测</a><br>
-	                <hr size="2" color="#000000">
-	                 实现自动抓取和分析新闻信息，使你实时掌握舆情动态；适用于对舆情敏感的用户。下载地址：<a href="https://pan.baidu.com/s/1NcPHiGaay6qRexRTICW7dg?pwd=4bda" target="_blank"><b>百度网盘</b></a> <br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-		<tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/1sRUwSKQ3ZvUw5CGNTve2xw?pwd=3ill" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/事件检测1.png" alt="事件检测" width="128" height="128" hspace="8" vspace="0" border="4" align="left">事件检测</a><br>
-	                <hr size="2" color="#000000">
-	                 实现安防事件检测；适用于对相关场景自动化监测感兴趣的用户。下载地址：<a href="https://pan.baidu.com/s/1sRUwSKQ3ZvUw5CGNTve2xw?pwd=3ill" target="_blank"><b>百度网盘</b></a> 演示地址：<a href="https://www.bilibili.com/video/BV1mnGDeyEMS" target="_blank"><b>b站</b></a><br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-		<tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/1l3OPyFeqGFPgBegpGWslGg?pwd=erz6" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/配音.png" alt="NL配音" width="128" height="128" hspace="8" vspace="0" border="4" align="left">NL配音</a><br>
-	                <hr size="2" color="#000000">
-	                 实现文案配音，有声书制作等功能；适用于短视频，有声书创作的用户。下载地址：<a href="https://pan.baidu.com/s/1l3OPyFeqGFPgBegpGWslGg?pwd=erz6" target="_blank"><b>百度网盘</b></a> 演示地址：<a href="https://www.bilibili.com/video/BV1FwH2eyE8n" target="_blank"><b>b站</b></a><br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-		<tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/12g_QsfGDHIo49HdEoFYe5w?pwd=44b8" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/转写.png" alt="NL听见" width="128" height="128" hspace="8" vspace="0" border="4" align="left">NL听见</a><br>
-	                <hr size="2" color="#000000">
-	                 实现字幕提取，语音转文字等功能；适用于短视频创作，语音转写等场景。下载地址：<a href="https://pan.baidu.com/s/12g_QsfGDHIo49HdEoFYe5w?pwd=44b8" target="_blank"><b>百度网盘</b></a> 演示地址：<a href="https://www.bilibili.com/video/BV1ZTH2egE3G" target="_blank"><b>b站</b></a><br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-	    
-	    <!--app-->
-		<tr>
-	        <td>
-	            <div align="center">
-	                <br>
-	                <img src="images/app.png" hspace="0" vspace="0" align="center" alt="Games">
-	            </div>
-	        </td>
-	    </tr>
-	    
-	    <tr>
-	        <td>
-	            <div>
-	                <br>
-	                <a href="https://pan.baidu.com/s/14IWGbjoG0kgCRUTqtgHvMQ?pwd=0zos" target="_blank" style="color: #17a554; font-size: 18px; font-weight: bold"> <img src="images/datika.png" alt="摄像头阅卷" width="128" height="128" hspace="8" vspace="0" border="4" align="left">摄像头阅卷</a><br>
-	                <hr size="2" color="#000000">
-	                 一款通过手机摄像头对答题卡进行自动化阅卷的android app；适用于教师阅卷，问卷调查等场景。下载地址：<a href="https://pan.baidu.com/s/14IWGbjoG0kgCRUTqtgHvMQ?pwd=0zos" target="_blank"><b>百度网盘</b></a> 演示地址：<a href="https://www.bilibili.com/video/BV1m8411L7Hn" target="_blank"><b>b站</b></a><br clear="all">
-	                
-	            </div>
-	        </td>
-	    </tr>
-	    
-	    <!--about-->
-	    <tr>
-      <td>
-          <div align="center">
-              <br>
-              <img src="images/about.png" hspace="0" vspace="8" align="center" alt="about">
-	              <p>
-	              致力于AI+行业化应用开发，联系我们：jxqdyx@126.com<br><br>感谢你的访问!
-	              </p>
-              <br>
-              <br>
-      </div></td>
-      </tr>
-      
-      
-      <tr><td style="height:2px;border-top:solid 2px #000000"></td></tr>
-      <tr style="background-color: #000000">
-          <td><p style="text-align:center; color: white; margin-top:3px">© 2020 by yemuzi studio</p></td>
-      </tr>
-	    
-	    
-		</tbody>
-	</table>
-    
+    <div class="container">
+        <!-- AI阅卷助手1模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/datika.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-扫描仪版🖨️
+					<span class="badge">v1.1 | 160MB</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>自动完成客观题阅卷</li>
+					<li>可视化阅卷过程</li>
+					<li>支持twain协议扫描仪</li>
+                    <li>识别准确率≥99%</li>
+                    <li>单张处理时间＜0.1秒</li>
+                </ul>
+                <div class="action-box">
+                    <a href="https://pan.baidu.com/s/1XziXmfCY8uaf_8JBAs_X4g?pwd=kc27" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        📥 立即下载
+                    </a>
+                    <a href="" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>
+		
+		<!-- AI阅卷助手2模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/datika.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-摄像头版📷
+					<span class="badge">v1.8 | 11MB</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>自动完成客观题阅卷</li>
+                    <li>可视化阅卷过程</li>
+					<li>支持定制题卡</li>
+                    <li>识别准确率≥95%</li>
+                    <li>单张处理时间＜0.1秒</li>
+                </ul>
+                <div class="action-box">
+                    <a href="https://pan.baidu.com/s/1oTUycdG64ofEohaPaLVQfQ?pwd=21cb" 
+                       class="action-btn"
+                       target="_blank">
+                        📥 立即下载
+                    </a>
+                    <a href="" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>
+		
+		<!-- AI阅卷助手3模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/datika.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-手机版📱
+					<span class="badge">v2.1 | 7MB</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>自动完成客观题阅卷</li>
+                    <li>可视化阅卷过程</li>
+					<li>支持android手机</li>
+                    <li>识别准确率≥95%</li>
+                    <li>单张处理时间＜0.1秒</li>
+                </ul>
+                <div class="action-box">
+                    <a href="https://pan.baidu.com/s/1vCcrb7a66-0F0a4C2JBEow?pwd=ngwh" 
+                       class="action-btn"
+                       target="_blank">
+                        📥 立即下载
+                    </a>
+                    <a href="" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>
+		
+		<!-- AI阅卷助手4模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/datika.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-主观题版🧠
+					<span class="badge">v1.1 | 90MB</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>自动完成主观题阅卷</li>
+                    <li>支持多种科目</li>
+                    <li>无缝对接阅卷平台</li>
+                    <li>单张处理平均耗时＜10秒</li>
+                </ul>
+                <div class="action-box">
+                    <a href="https://pan.baidu.com/s/10np82dEbOScaObqhDM1Gew?pwd=1his" 
+                       class="action-btn"
+                       target="_blank">
+                        📥 立即下载
+                    </a>
+                    <a href="" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>
+		
+		<!-- 事件检测1模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/event.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					事件检测-平台版💻
+					<span class="badge">v1.2 | 120MB</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+					<li>开放的流媒体应用框架</li>
+                    <li>包含常见事件类型</li>
+                    <li>支持用户自己开发模型</li>                    
+                </ul>
+                <div class="action-box">
+                    <a href="https://pan.baidu.com/s/1-GG0ni3dWu03Bwz-BkMQ1Q?pwd=69vw" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        📥 立即下载
+                    </a>
+                    <a href="https://www.bilibili.com/video/BV1rP411u75a" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>
+				
+        <!-- 关于我们 -->
+        <div class="about-section">
+            <h3 style="margin-bottom:0.8rem">致力于行业化AI赋能</h3>
+            <p class="contact-info">
+                联系我们: jxqdyx@126.com<br>
+            </p>
+            <div style="margin-top:0.5rem">
+                <span style="color:#999">© 2020 by yemuzi studio</span>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
