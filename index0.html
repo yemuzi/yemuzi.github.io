@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>AI触手可及~ | Yemuzi Studio</title>
+    <meta name="keywords" content="降本增效,扫描仪阅卷,摄像头阅卷,手机阅卷,AI阅卷,客观题阅卷,答题卡阅卷,主观题阅卷,阅卷神器,事件检测,智能视频分析,安防事件检测,交通事件检测,人工智能，AI赋能">
+    <meta name="description" content="AI时代，最好的时代">
+    <style>
+        :root {
+            --primary-color: #17a554;
+            --text-color: #4b4b4b;
+            --card-width: min(95%, 680px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            background: #f8f9fa;
+        }
+
+        .container {
+            width: var(--card-width);
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        /* 模块化卡片 */
+        .software-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.2rem;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.2rem;			
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-box img {
+            width: 128px;
+            height: 128px;
+            object-fit: contain;
+            //border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .title-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.3rem;
+        }
+
+        .software-name {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .software-meta {
+            font-size: 0.85rem;
+            color: #666;
+            white-space: nowrap;
+        }
+		
+		.badge {
+            font-size: 0.85rem;
+            color: #666;
+            background: #e9ecef;
+            padding: 0.2rem 0.8rem;
+            border-radius: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.4rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.92rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .action-box {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 关于模块 */
+        .about-section {
+            text-align: center;
+            padding: 1.5rem;
+            background: #2c2c2c;
+            color: white;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            margin: 0.8rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .software-card {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .icon-box {
+                margin: 0 auto;
+            }
+			/*
+            .title-box {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.2rem;
+            }
+			
+            .software-meta {
+                white-space: normal;
+                text-align: center;
+            }			
+			
+            .action-box {
+                flex-direction: column;
+            }
+			*/
+            .action-btn {
+                justify-content: center;
+            }
+			
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+		<!-- AI阅卷助手1模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/主观题.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-主观题版🧠
+					<span class="badge">主观题阅卷</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">           
+                    <li>无缝对接第三方阅卷平台</li>					
+					<li>识别准确率≥95%，单张处理 <10 秒</li>
+					<li>支持多科目</li>
+					<li>适用场景：学校日常作业与考试，机构培训与考核，招聘笔试与技能测评</li>
+                </ul>
+                <div class="action-box">                   				
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1-RsdCnkzlMZq22PMaifDSw?pwd=h5wz" 
+                       class="action-btn"
+                       target="_blank">
+                        📥 下载试用
+                    </a>
+					<a href="https://www.bilibili.com/video/BV1qHAozLEw8/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        ▶️ 功能介绍
+                    </a>	
+                </div>
+            </div>
+        </div>
+		
+        <!-- AI阅卷助手2模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/扫描仪.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-扫描仪版🖨️
+					<span class="badge">答题卡阅卷</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+					<li>兼容所有 TWAIN 扫描仪</li>
+                    <li>识别准确率≥99%，单张处理＜0.1秒</li>
+					<li>支持定制答题卡</li>
+					<li>适用场景：学校日常作业与考试，机构培训与考核，招聘笔试与技能测评</li>
+                </ul>
+                <div class="action-box">					
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1-RsdCnkzlMZq22PMaifDSw?pwd=h5wz" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        📥 下载试用
+                    </a>
+					<a href="https://www.bilibili.com/video/BV1dVx7zoEQE" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>
+		
+		<!-- AI阅卷助手3模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/摄像头.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-摄像头版📷
+					<span class="badge">答题卡阅卷</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+					<li>兼容大多数 USB 摄像头</li>					
+                    <li>识别准确率≥95%，单张处理＜0.1秒</li>
+					<li>支持定制答题卡</li>
+					<li>适用场景：学校日常作业与考试，机构培训与考核，招聘笔试与技能测评</li>
+                </ul>
+                <div class="action-box">                    
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1-RsdCnkzlMZq22PMaifDSw?pwd=h5wz" 
+                       class="action-btn"
+                       target="_blank">
+                        📥 下载试用
+                    </a>
+					<a href="" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>					
+                </div>
+            </div>
+        </div>
+		
+		<!-- AI阅卷助手4模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/手机.png" alt="AI阅卷助手">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					AI阅卷助手-手机版📱
+					<span class="badge">答题卡阅卷</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+					<li>兼容大多数 Android 手机</li>					
+                    <li>识别准确率≥95%，单张处理＜0.1秒</li>
+					<li>支持定制答题卡</li>
+					<li>适用场景：学校日常作业与考试，机构培训与考核，招聘笔试与技能测评</li>
+                </ul>
+                <div class="action-box">                    					
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1-RsdCnkzlMZq22PMaifDSw?pwd=h5wz" 
+                       class="action-btn"
+                       target="_blank">
+                        📥 下载试用
+                    </a>
+					<a href="" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>
+                </div>
+            </div>
+        </div>		
+		
+		<!-- 事件检测1模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/事件检测-安防.png" alt="事件检测">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					事件检测-安防💻
+					<span class="badge">异常告警</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>覆盖常见安防事件</li>
+					<li>事件检测准确率≥95%，秒级响应</li>
+                    <li>支持服务器/边缘计算盒部署</li>
+					<li>支持二次开发</li>					
+					<li>适合：希望开箱即用的用户</li>
+                </ul>
+                <div class="action-box">
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1XK1mGRNVABpMswNP-LM2fw?pwd=rms9" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        📥 下载试用
+                    </a>					
+					<a href="https://www.bilibili.com/video/BV1DZ4MzfELC" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        ▶️ 功能介绍
+                    </a>
+					<a href="https://www.bilibili.com/video/BV1DZ4MzfELC" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍-水利
+                    </a>
+					<a href="https://www.bilibili.com/video/BV1DZ4MzfELC" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍-电力
+                    </a>
+					<a href="https://www.bilibili.com/video/BV1DZ4MzfELC" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍-无人机
+                    </a>                    
+                </div>
+            </div>
+        </div>
+		
+		<!-- 事件检测2模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/事件检测-高速.png" alt="事件检测">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					事件检测-高速💻
+					<span class="badge">路况监测</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>覆盖常见高速事件</li>
+					<li>事件检测准确率≥95%，秒级响应</li>
+                    <li>支持服务器部署</li>
+					<li>支持二次开发</li>					
+					<li>适合：希望开箱即用的用户</li>
+                </ul>
+                <div class="action-box">
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1XK1mGRNVABpMswNP-LM2fw?pwd=rms9" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        📥 下载试用
+                    </a> 					
+					<a href="https://www.bilibili.com/video/BV1mP4uzREpF" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: visible;">
+                        ▶️ 功能介绍
+                    </a>                    
+                </div>
+            </div>
+        </div>
+		
+		<!-- 事件检测3模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/事件检测-视频质量评估.png" alt="事件检测">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					事件检测-视频质量评估💻
+					<span class="badge">画质诊断</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+                    <li>覆盖常见视频质量评估事件</li>
+					<li>事件检测准确率≥95%，秒级响应</li>
+                    <li>支持服务器/边缘计算盒部署</li>
+					<li>支持二次开发</li>					
+					<li>适合：希望开箱即用的用户</li>
+                </ul>
+                <div class="action-box">
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1XK1mGRNVABpMswNP-LM2fw?pwd=rms9" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        📥 下载试用
+                    </a>					
+					<a href="https://www.bilibili.com/video/BV1DZ4MzfELC" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>                    
+                </div>
+            </div>
+        </div>
+		
+		<!-- 事件检测4模块 -->
+        <div class="software-card">
+            <div class="icon-box">
+                <img src="images/事件检测-开发平台.png" alt="事件检测">
+            </div>
+            <div class="info-box">
+                <div class="title-box">
+                    <div class="software-name">
+					事件检测-开放平台💻
+					<span class="badge">会模型开发，就能开发流媒体应用</span>
+					</div>                    
+                </div>
+                <ul class="feature-list">
+					<li>开放的流媒体应用框架</li>
+                    <li>内置常见事件类型</li>
+					<li>支持服务器/边缘计算盒部署</li>
+					<li>支持二次开发</li>
+                    <li>支持自定义模型开发</li>
+					<li>适合：会模型开发的用户</li>
+                </ul>
+                <div class="action-box">
+					<a href="https://shop70450909.taobao.com/" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        🛒 在线购买
+                    </a>
+					<a href="https://pan.baidu.com/s/1XK1mGRNVABpMswNP-LM2fw?pwd=rms9" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        📥 下载试用
+                    </a>  
+					<a href="https://www.bilibili.com/video/BV1DZ4MzfELC" 
+                       class="action-btn"
+                       target="_blank"
+					   style="visibility: hidden;">
+                        ▶️ 功能介绍
+                    </a>					
+                </div>
+            </div>
+        </div>		
+		
+				
+        <!-- 关于我们 -->
+        <div class="about-section">
+            <h3 style="margin-bottom:0.8rem">致力于行业化AI赋能</h3>
+            <p class="contact-info">
+                联系我们: jxqdyx@126.com<br>
+            </p>
+            <div style="margin-top:0.5rem">
+				<span style="color:#999">
+					Copyright 2020 - <span id="year"></span> NL. All Rights Reserved
+				</span>
+
+				<script>
+					document.getElementById("year").textContent = new Date().getFullYear();
+				</script>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

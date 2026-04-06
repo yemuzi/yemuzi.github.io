@@ -15,8 +15,8 @@
 
         body {
             font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #f8f9fa;      /* 参照 index0 背景色 */
-            color: #4b4b4b;           /* 柔和主文字色 */
+            background: #f5f7fb;
+            color: #1e293b;
             line-height: 1.5;
         }
 
@@ -27,15 +27,15 @@
             padding: 2rem 1.5rem;
         }
 
-        /* 分类标题 - 绿色左框线 */
+        /* 分类标题 */
         .section-title {
             margin: 2.5rem 0 1.2rem 0;
             font-size: 1.75rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            border-left: 5px solid #17a554;   /* 主色 */
+            border-left: 5px solid #17a554;
             padding-left: 1rem;
-            color: #1e293b;
+            color: #0f172a;
         }
         .section-title:first-of-type {
             margin-top: 0;
@@ -48,20 +48,21 @@
             gap: 1.8rem;
         }
 
-        /* 卡片样式 - 参照 index0 干净白卡 + 轻微阴影 */
+        /* 卡片样式 - 专业、干净、微质感 */
         .software-card {
             background: #ffffff;
-            border-radius: 8px;               /* 圆角改为 8px，更接近 index0 */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
             transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            border: none;                     /* 去除边框，干净利落 */
+            border: 1px solid #eef2f6;
         }
         .software-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+            border-color: #dce3ec;
         }
 
         /* 内部布局：上部分图标+内容，底部按钮区 */
@@ -72,7 +73,7 @@
             flex: 1;
         }
 
-        /* 图标区 - 去掉背景和padding，更简约 */
+        /* 图标区 */
         .icon-box {
             flex-shrink: 0;
             width: 88px;
@@ -84,10 +85,10 @@
             width: 80px;
             height: 80px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 16px;
+            background: #f8fafc;
+            padding: 8px;
             transition: transform 0.2s;
-            background: transparent;   /* 去掉浅灰底纹 */
-            padding: 0;
         }
         .software-card:hover .icon-box img {
             transform: scale(1.02);
@@ -111,15 +112,14 @@
         .software-name {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #17a554;           /* 主色标题，参照 index0 绿色标题 */
+            color: #0f172a;
             letter-spacing: -0.2px;
         }
-        /* badge 浅灰风格，参照 index0 */
         .badge {
             font-size: 0.7rem;
             font-weight: 500;
-            background: #e9ecef;
-            color: #666;
+            background: #eef2ff;
+            color: #1e40af;
             padding: 0.2rem 0.7rem;
             border-radius: 2rem;
             white-space: nowrap;
@@ -135,7 +135,7 @@
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
-            color: #4b4b4b;          /* 柔和深灰 */
+            color: #334155;
         }
         .feature-list li::before {
             content: "✓";
@@ -144,49 +144,59 @@
             flex-shrink: 0;
         }
 
-        /* 按钮区域 - 完全参照 index0 风格：纯绿底 + 白字，无边框 */
+        /* 按钮区域 */
         .action-box {
             padding: 1rem 1.6rem 1.6rem 1.6rem;
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
+            border-top: 1px solid #f0f2f5;
             margin-top: auto;
-            background: #ffffff;
-            border-top: none;          /* 去掉分割线，更简洁 */
+            background: #fefefe;
         }
         .action-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.5rem 1rem;
-            background: #17a554;       /* 统一绿色主按钮 */
-            border: none;
-            border-radius: 4px;        /* 直角微圆，参照 index0 按钮风格 */
+            padding: 0.45rem 1rem;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 2rem;
             font-size: 0.8rem;
             font-weight: 500;
-            color: white;
+            color: #1e293b;
             text-decoration: none;
-            transition: opacity 0.2s, transform 0.1s;
-            cursor: pointer;
-            backdrop-filter: none;
+            transition: all 0.2s;
+            backdrop-filter: blur(2px);
         }
         .action-btn:hover {
-            opacity: 0.9;
+            background: #f1f5f9;
+            border-color: #cbd5e1;
             transform: translateY(-1px);
-            background: #17a554;       /* 保持同色，变暗用opacity */
         }
-        /* 隐藏按钮依旧保持隐藏不可见（保留原有逻辑） */
+        /* 主按钮样式（购买/下载等视觉加强） */
+        .action-btn[href*="taobao"],
+        .action-btn[href*="pan.baidu"] {
+            background: #17a554;
+            border-color: #17a554;
+            color: white;
+        }
+        .action-btn[href*="taobao"]:hover,
+        .action-btn[href*="pan.baidu"]:hover {
+            background: #0f8a46;
+            border-color: #0f8a46;
+        }
+        /* 隐藏按钮依旧占位但不可见 —— 保持原有逻辑 */
         .action-btn[style*="visibility: hidden"] {
             visibility: hidden;
             pointer-events: none;
-            opacity: 0;
         }
 
-        /* 关于模块 - 深灰底，参照 index0 */
+        /* 关于模块 (更专业沉稳) */
         .about-section {
             margin-top: 3.5rem;
-            background: #2c2c2c;       /* index0 的深灰背景 */
-            border-radius: 8px;
+            background: #1e293b;
+            border-radius: 1.5rem;
             padding: 2rem 1.5rem;
             text-align: center;
             color: #e2e8f0;
@@ -201,15 +211,14 @@
             font-size: 0.9rem;
             margin: 0.8rem 0;
             word-break: break-word;
-            color: #ddd;
         }
         .copyright {
             font-size: 0.75rem;
-            color: #999;               /* 浅灰版权 */
+            color: #94a3b8;
             margin-top: 1rem;
         }
 
-        /* 响应式调整 */
+        /* 响应式 */
         @media (max-width: 780px) {
             .container {
                 padding: 1.2rem;
@@ -249,7 +258,7 @@
                 font-size: 0.65rem;
             }
             .action-btn {
-                padding: 0.4rem 0.9rem;
+                padding: 0.35rem 0.8rem;
                 font-size: 0.75rem;
             }
         }
