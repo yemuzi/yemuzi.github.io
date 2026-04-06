@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>AI触手可及 · 专业AI解决方案 | Yemuzi Studio</title>
     <meta name="keywords" content="降本增效,扫描仪阅卷,摄像头阅卷,手机阅卷,AI阅卷,客观题阅卷,答题卡阅卷,主观题阅卷,阅卷神器,事件检测,智能视频分析,安防事件检测,交通事件检测,人工智能，AI赋能">
     <meta name="description" content="AI时代，最好的时代——为教育、安防、交通等行业提供专业AI赋能方案。">
@@ -15,8 +15,8 @@
 
         body {
             font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #f8f9fa;      /* 参照 index0 背景色 */
-            color: #4b4b4b;           /* 柔和主文字色 */
+            background: #f8f9fa;
+            color: #4b4b4b;
             line-height: 1.5;
         }
 
@@ -33,7 +33,7 @@
             font-size: 1.75rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            border-left: 5px solid #17a554;   /* 主色 */
+            border-left: 5px solid #17a554;
             padding-left: 1rem;
             color: #1e293b;
         }
@@ -48,16 +48,16 @@
             gap: 1.8rem;
         }
 
-        /* 卡片样式 - 参照 index0 干净白卡 + 轻微阴影 */
+        /* 卡片样式 - 干净白卡 + 轻微阴影 */
         .software-card {
             background: #ffffff;
-            border-radius: 8px;               /* 圆角改为 8px，更接近 index0 */
+            border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            border: none;                     /* 去除边框，干净利落 */
+            border: none;
         }
         .software-card:hover {
             transform: translateY(-2px);
@@ -72,7 +72,7 @@
             flex: 1;
         }
 
-        /* 图标区 - 去掉背景和padding，更简约 */
+        /* 图标区 */
         .icon-box {
             flex-shrink: 0;
             width: 88px;
@@ -86,7 +86,7 @@
             object-fit: contain;
             border-radius: 8px;
             transition: transform 0.2s;
-            background: transparent;   /* 去掉浅灰底纹 */
+            background: transparent;
             padding: 0;
         }
         .software-card:hover .icon-box img {
@@ -111,10 +111,9 @@
         .software-name {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #17a554;           /* 主色标题，参照 index0 绿色标题 */
+            color: #17a554;
             letter-spacing: -0.2px;
         }
-        /* badge 浅灰风格，参照 index0 */
         .badge {
             font-size: 0.7rem;
             font-weight: 500;
@@ -135,7 +134,7 @@
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
-            color: #4b4b4b;          /* 柔和深灰 */
+            color: #4b4b4b;
         }
         .feature-list li::before {
             content: "✓";
@@ -144,7 +143,7 @@
             flex-shrink: 0;
         }
 
-        /* 按钮区域 - 完全参照 index0 风格：纯绿底 + 白字，无边框 */
+        /* 按钮区域 */
         .action-box {
             padding: 1rem 1.6rem 1.6rem 1.6rem;
             display: flex;
@@ -152,40 +151,39 @@
             gap: 0.75rem;
             margin-top: auto;
             background: #ffffff;
-            border-top: none;          /* 去掉分割线，更简洁 */
+            border-top: none;
         }
         .action-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             padding: 0.5rem 1rem;
-            background: #17a554;       /* 统一绿色主按钮 */
+            background: #17a554;
             border: none;
-            border-radius: 4px;        /* 直角微圆，参照 index0 按钮风格 */
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 500;
             color: white;
             text-decoration: none;
             transition: opacity 0.2s, transform 0.1s;
             cursor: pointer;
-            backdrop-filter: none;
         }
         .action-btn:hover {
             opacity: 0.9;
             transform: translateY(-1px);
-            background: #17a554;       /* 保持同色，变暗用opacity */
+            background: #17a554;
         }
-        /* 隐藏按钮依旧保持隐藏不可见（保留原有逻辑） */
+        /* 隐藏按钮保持不可见 */
         .action-btn[style*="visibility: hidden"] {
             visibility: hidden;
             pointer-events: none;
             opacity: 0;
         }
 
-        /* 关于模块 - 深灰底，参照 index0 */
+        /* 关于模块 - 深灰底 */
         .about-section {
             margin-top: 3.5rem;
-            background: #2c2c2c;       /* index0 的深灰背景 */
+            background: #2c2c2c;
             border-radius: 8px;
             padding: 2rem 1.5rem;
             text-align: center;
@@ -205,11 +203,11 @@
         }
         .copyright {
             font-size: 0.75rem;
-            color: #999;               /* 浅灰版权 */
+            color: #999;
             margin-top: 1rem;
         }
 
-        /* 响应式调整 */
+        /* ========= 响应式：手机浏览器内容严格左对齐，图标居中 ========= */
         @media (max-width: 780px) {
             .container {
                 padding: 1.2rem;
@@ -220,37 +218,59 @@
             }
             .card-inner {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
+                align-items: stretch;    /* 保证子项占满宽度 */
+                text-align: left;       /* 整体文本左对齐，不再强制居中 */
+                gap: 0.8rem;
             }
             .icon-box {
-                width: auto;
+                width: 100%;
+                display: flex;
+                justify-content: center;  /* 图标水平居中 */
                 margin-bottom: 0.25rem;
             }
+            .icon-box img {
+                width: 80px;
+                height: 80px;
+            }
+            .info-box {
+                width: 100%;
+                text-align: left;        /* 文字区域左对齐，参照 index0 */
+            }
             .title-box {
-                justify-content: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
             }
             .feature-list li {
-                justify-content: center;
+                justify-content: flex-start;  /* 列表项左对齐，勾选标记自然排列 */
+                text-align: left;
             }
             .action-box {
-                justify-content: center;
+                justify-content: center;      /* 按钮居中，保持美观 */
             }
             .section-title {
                 font-size: 1.5rem;
                 margin: 1.8rem 0 1rem 0;
             }
         }
+
+        /* 极窄屏额外微调 */
         @media (max-width: 480px) {
             .software-name {
                 font-size: 1.1rem;
             }
             .badge {
                 font-size: 0.65rem;
+                white-space: normal;
             }
             .action-btn {
                 padding: 0.4rem 0.9rem;
                 font-size: 0.75rem;
+            }
+            .card-inner {
+                padding: 1.2rem 1.2rem 0 1.2rem;
+            }
+            .action-box {
+                padding: 0.8rem 1.2rem 1.2rem 1.2rem;
             }
         }
     </style>
