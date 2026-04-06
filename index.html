@@ -143,7 +143,7 @@
             flex-shrink: 0;
         }
 
-        /* 按钮区域 */
+        /* 按钮区域 - 优化布局，更接近参考风格 */
         .action-box {
             padding: 1rem 1.6rem 1.6rem 1.6rem;
             display: flex;
@@ -156,28 +156,28 @@
         .action-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.4rem;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             background: #17a554;
             border: none;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 500;
             color: white;
             text-decoration: none;
             transition: opacity 0.2s, transform 0.1s;
             cursor: pointer;
+            white-space: nowrap;
         }
         .action-btn:hover {
             opacity: 0.9;
             transform: translateY(-1px);
             background: #17a554;
         }
-        /* 隐藏按钮保持不可见 */
+        /* 彻底隐藏不可见按钮，不占位，让布局更干净 */
         .action-btn[style*="visibility: hidden"] {
-            visibility: hidden;
-            pointer-events: none;
-            opacity: 0;
+            display: none;
         }
 
         /* 关于模块 - 深灰底 */
@@ -207,7 +207,7 @@
             margin-top: 1rem;
         }
 
-        /* ========= 响应式：手机浏览器内容严格左对齐，图标居中 ========= */
+        /* ========= 响应式：手机浏览器内容左对齐，按钮自然紧凑 ========= */
         @media (max-width: 780px) {
             .container {
                 padding: 1.2rem;
@@ -218,14 +218,14 @@
             }
             .card-inner {
                 flex-direction: column;
-                align-items: stretch;    /* 保证子项占满宽度 */
-                text-align: left;       /* 整体文本左对齐，不再强制居中 */
+                align-items: stretch;
+                text-align: left;
                 gap: 0.8rem;
             }
             .icon-box {
                 width: 100%;
                 display: flex;
-                justify-content: center;  /* 图标水平居中 */
+                justify-content: center;
                 margin-bottom: 0.25rem;
             }
             .icon-box img {
@@ -234,18 +234,26 @@
             }
             .info-box {
                 width: 100%;
-                text-align: left;        /* 文字区域左对齐，参照 index0 */
+                text-align: left;
             }
             .title-box {
                 justify-content: space-between;
                 flex-wrap: wrap;
             }
             .feature-list li {
-                justify-content: flex-start;  /* 列表项左对齐，勾选标记自然排列 */
+                justify-content: flex-start;
                 text-align: left;
             }
+            /* 按钮区域：左对齐 + 自然换行，避免随意居中散乱 */
             .action-box {
-                justify-content: center;      /* 按钮居中，保持美观 */
+                justify-content: flex-start;
+                gap: 0.7rem;
+                padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+            }
+            .action-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+                white-space: nowrap;
             }
             .section-title {
                 font-size: 1.5rem;
@@ -253,7 +261,7 @@
             }
         }
 
-        /* 极窄屏额外微调 */
+        /* 极窄屏额外微调，防止按钮文字折行过多 */
         @media (max-width: 480px) {
             .software-name {
                 font-size: 1.1rem;
@@ -263,8 +271,9 @@
                 white-space: normal;
             }
             .action-btn {
-                padding: 0.4rem 0.9rem;
+                padding: 0.45rem 0.9rem;
                 font-size: 0.75rem;
+                white-space: nowrap;
             }
             .card-inner {
                 padding: 1.2rem 1.2rem 0 1.2rem;
